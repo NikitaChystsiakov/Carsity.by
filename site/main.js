@@ -89,8 +89,10 @@
       y: 40, opacity: 0, duration: .8, ease, stagger: .08,
       scrollTrigger: { trigger: g, start: 'top 85%' }
     }));
-    ['.route__quote', '.reviews__head', '.lots__head', '.faq__grid > *', '.foot__grid > *'].forEach(s =>
-      gsap.from($$(s), { y: 30, opacity: 0, duration: .8, ease, stagger: .08, scrollTrigger: { trigger: $(s), start: 'top 85%' } }));
+    ['.route__quote', '.reviews__head', '.lots__head', '.faq__grid > *'].forEach(s =>
+      gsap.from($$(s), { y: 30, opacity: 0, duration: .8, ease, stagger: .08, scrollTrigger: { trigger: $(s), start: 'top 92%' } }));
+    /* футер не прячем: он внизу, и порог появления там может быть недостижим */
+    addEventListener('load', () => ScrollTrigger.refresh());
 
     /* receipt: строки «пробиваются» по очереди */
     const rc = $('[data-receipt]');
@@ -228,7 +230,12 @@
   });
   back.addEventListener('click', () => go(step - 1));
   form.addEventListener('submit', e => e.preventDefault());
-  function fitQuiz() { vp.style.height = qsteps[step].offsetHeight + 'px'; }
+  let qzT = null;
+  function fitQuiz() {
+    vp.style.height = qsteps[step].offsetHeight + 'px';
+    /* высота страницы поменялась — пересчитать точки появления блоков ниже */
+    clearTimeout(qzT); qzT = setTimeout(() => window.ScrollTrigger && ScrollTrigger.refresh(), 500);
+  }
   addEventListener('resize', fitQuiz);
   go(0);
 })();
