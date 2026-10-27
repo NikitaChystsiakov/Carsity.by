@@ -30,17 +30,45 @@
     e.preventDefault(); scrollToEl(el);
   }));
 
-  /* hero video (V1): грузим после постера, играем один раз и замираем на финале */
+  /* hero video (V1): грузим после постера, играем один раз и замираем на финале.
+     Ждём не canplaythrough (Safari его не шлёт при preload=none), а сразу просим play() */
   const hv = $('[data-hero-video]');
   const HERO_SRC = 'assets/video/hero-arrive.mp4';
-  if (hv && !reduce && desktop.matches) {
-    addEventListener('load', () => {
-      hv.src = HERO_SRC;
-      hv.addEventListener('canplaythrough', () => { hv.classList.add('is-ready'); hv.play().catch(() => {}); }, { once: true });
-      hv.addEventListener('error', () => hv.remove(), { once: true });
-      hv.load();
-    });
+  function startHero() {
+    hv.muted = true; hv.playsInline = true; hv.preload = 'auto';
+    hv.addEventListener('playing', () => hv.classList.add('is-ready'), { once: true });
+    hv.addEventListener('error', () => hv.remove(), { once: true });
+    hv.src = HERO_SRC;
+    const go = () => hv.play().catch(() => {});
+    go(); hv.addEventListener('canplay', go, { once: true });
   }
+  if (hv && !reduce && desktop.matches) {
+    if (document.readyState === 'complete') startHero(); else addEventListener('load', startHero, { once: true });
+  }
+
+  /* лента машин клиентов: клик открывает фото в окне просмотра */
+  const lb = $('[data-lb]'), lbImg = $('[data-lb-img]'), lbName = $('[data-lb-name]');
+  const cars = $$('.tile--car');
+  let lbi = 0;
+  function showCar(i) {
+    lbi = (i + cars.length) % cars.length;
+    const c = cars[lbi];
+    lbImg.src = c.dataset.photo; lbImg.alt = c.querySelector('img').alt; lbName.textContent = c.dataset.name;
+  }
+  function openCar(i) {
+    showCar(i);
+    if (!lb.open) { lb.showModal(); lenis && lenis.stop(); }
+  }
+  cars.forEach((c, i) => {
+    c.addEventListener('click', () => openCar(i));
+    c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCar(i); } });
+  });
+  $('[data-lb-close]').addEventListener('click', () => lb.close());
+  $('[data-lb-prev]').addEventListener('click', () => showCar(lbi - 1));
+  $('[data-lb-next]').addEventListener('click', () => showCar(lbi + 1));
+  lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+  lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') showCar(lbi - 1); if (e.key === 'ArrowRight') showCar(lbi + 1); });
+  lb.addEventListener('close', () => { lenis && lenis.start(); });
 
   if (hasGsap) {
     gsap.registerPlugin(ScrollTrigger);
@@ -91,34 +119,27 @@
     steps.forEach((s, k) => s.classList.toggle('is-on', k === i));
     dots.forEach((s, k) => s.classList.toggle('is-on', k <= i));
   }
-  /* видео этапов не играют сами: кадр задаёт прокрутка (стоите — кадр стоит, без скачков) */
+  /* видео этапов: бесшовные циклы, играет только видимый шот; 5-й этап (заезд) — один раз и стоп на финале */
   function prepVideo(layer) {
     const v = layer.querySelector('video');
-    if (!v || reduce || !v.dataset.src || v.dataset.state) return v;
-    v.dataset.state = 'loading';
-    v.preload = 'auto';
-    v.addEventListener('loadeddata', () => {
-      v.dataset.state = 'ready'; v.classList.add('is-ready');
-      seek(v, v._want || 0);
-    }, { once: true });
-    v.addEventListener('seeked', () => {
-      v._busy = false;
-      if (v._next != null) { const t = v._next; v._next = null; seek(v, t); }
-    });
-    v.addEventListener('error', () => { v._busy = false; v.dataset.state = 'none'; v.classList.remove('is-ready'); });
-    /* целиком в память: перемотка работает даже на хостинге без Range-запросов */
-    fetch(v.dataset.src).then(r => { if (!r.ok) throw 0; return r.blob(); })
-      .then(b => { v.src = URL.createObjectURL(b); v.load(); })
-      .catch(() => { v.dataset.state = 'none'; });
-    return v;
+    if (!v || reduce || !v.dataset.src) return null;
+    if (!v.dataset.state) {
+      v.dataset.state = 'loading';
+      v.muted = true; v.preload = 'auto';
+      v.addEventListener('playing', () => { v.dataset.state = 'ready'; v.classList.add('is-ready'); }, { once: true });
+      v.addEventListener('error', () => { v.dataset.state = 'none'; v.classList.remove('is-ready'); }, { once: true });
+      v.src = v.dataset.src;
+    }
+    return v.dataset.state === 'none' ? null : v;
   }
-  function seek(v, p) {
-    v._want = p;
-    if (v.dataset.state !== 'ready' || !v.duration) return;
-    const t = Math.min(v.duration - 0.05, Math.max(0, p * v.duration));
-    if (Math.abs(v.currentTime - t) < 0.02) return;
-    if (v._busy) { v._next = p; return; }
-    v._busy = true; v.currentTime = t;
+  function showLayer(L, on) {
+    const v = prepVideo(L);
+    if (!v) return;
+    if (on) {
+      if (!L._on && !v.loop) v.currentTime = 0;  // заезд к офису каждый раз с начала
+      if (v.paused && !(v.ended && !v.loop)) v.play().catch(() => {});
+    } else if (!v.paused) v.pause();
+    L._on = on;
   }
   function routeProgress() {
     const r = track.getBoundingClientRect();
@@ -147,10 +168,9 @@
         L.style.setProperty('--edge', e > 0 && e < 1 ? 1 : 0);
       }
       L.style.setProperty('--z', (1.08 - 0.08 * e).toFixed(4));
-      if ((inView || r.top < innerHeight * 2) && k <= base + 1) {
-        const v = prepVideo(L);
-        if (v) seek(v, k < base ? 1 : k === base ? t : 0);
-      }
+      const near = r.top < innerHeight * 2 && r.bottom > -innerHeight;
+      if (near && k <= base + 1) prepVideo(L);
+      if (near) showLayer(L, inView && (k === base || (k === base + 1 && e > 0)));
     });
     setStep(Math.min(N - 1, Math.floor(s + WIPE / 2)));
   }
@@ -170,6 +190,7 @@
   /* quiz */
   const form = $('[data-quiz]'), trackEl = $('[data-qz-track]'), bar = $('[data-qz-bar]');
   const back = $('[data-qz-back]'), next = $('[data-qz-next]'), plate = $('[data-plate]');
+  const vp = $('.qz__viewport', form), qsteps = $$('.qz__step', form);
   const data = { channel: 'Telegram' };
   let step = 0;
   $$('.qz__opts', form).forEach(g => g.addEventListener('click', e => {
@@ -194,6 +215,7 @@
   function go(s) {
     step = Math.max(0, Math.min(4, s));
     trackEl.style.transform = `translateX(${-100 * step}%)`;
+    fitQuiz();
     bar.style.width = `${Math.min(100, (step + 1) * 25)}%`;
     back.style.visibility = step > 0 && step < 4 ? 'visible' : 'hidden';
     next.textContent = step === 3 ? 'Отправить заявку' : 'Дальше';
@@ -206,5 +228,7 @@
   });
   back.addEventListener('click', () => go(step - 1));
   form.addEventListener('submit', e => e.preventDefault());
+  function fitQuiz() { vp.style.height = qsteps[step].offsetHeight + 'px'; }
+  addEventListener('resize', fitQuiz);
   go(0);
 })();
