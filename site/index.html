@@ -4,15 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Carsify — пригон авто из США, Кореи и Европы под ключ, Минск</title>
-<meta name="description" content="Подбор на аукционах Copart и IAAI, проверка истории, доставка и растаможка в Беларуси и России. Сумму фиксируем до торгов. 5,0 на Яндекс Картах. Минск, Полярная 58В.">
+<meta name="description" content="Подбор на аукционах Copart и IAAI, проверка истории, доставка и растаможка в Беларуси и России. Расчёт под ключ до торгов. 5,0 на Яндекс Картах. Минск, Полярная 58В.">
+<meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Carsify — пригон авто под ключ">
-<meta property="og:description" content="От аукциона в США до ключей у нашего офиса в Минске. Сумма фиксируется до торгов.">
-<meta property="og:image" content="assets/img/hero-poster.jpg">
+<meta property="og:description" content="От аукциона в США до ключей у офиса в Минске. Расчёт под ключ до торгов, 5,0 на Яндекс Картах.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carsifyby.vercel.app/">
+<meta property="og:image" content="https://carsifyby.vercel.app/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#EFECE5">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Onest:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Onest:wght@400;500;700&display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"AutoDealer","name":"Carsify","legalName":"ООО «Карсифай»","url":"https://carsify.by/","telephone":"+375295522220","email":"info@carsify.by","address":{"@type":"PostalAddress","streetAddress":"ул. Полярная, 58В","postalCode":"220138","addressLocality":"Минск","addressCountry":"BY"},"openingHours":"Mo-Fr 10:00-19:00","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","ratingCount":"36","reviewCount":"26"},"sameAs":["https://www.instagram.com/carsify.by/","https://t.me/carsify"]}
@@ -41,7 +48,7 @@
   <div class="hero__head wrap">
     <h1 id="h1" class="hero__title" data-split><span>Покупай,</span><br><span>а не</span> <span class="red">мечтай</span></h1>
     <div class="hero__side">
-      <p class="hero__lead">Пригон авто из США, Кореи и Европы под ключ. Подберём на аукционе, проверим историю, привезём и растаможим. Сумму называем до торгов, и она не меняется.</p>
+      <p class="hero__lead">Пригон авто из США, Кореи и Европы под ключ. Подберём на аукционе, проверим историю, привезём и растаможим. Расчёт под ключ — до торгов, без доплат за парковку и простой в порту.</p>
       <form class="quick" data-quick>
         <label class="sr" for="q">Какую машину ищете?</label>
         <input id="q" name="q" placeholder="Какую машину ищете?" autocomplete="off">
@@ -63,15 +70,17 @@
     <figure class="tile tile--main">
       <video class="tile__video" data-hero-video muted playsinline preload="none" aria-hidden="true"></video>
       <picture>
-        <source media="(min-width: 761px) and (prefers-reduced-motion: no-preference)" srcset="assets/img/hero-first.jpg">
+        <source media="(min-width: 761px) and (prefers-reduced-motion: no-preference)" srcset="assets/img/hero-first.webp" type="image/webp">
+        <source media="(min-width: 761px)" srcset="assets/img/hero-poster.webp" type="image/webp">
+        <source media="(max-width: 760px)" srcset="assets/img/hero-m.webp" type="image/webp">
         <img class="tile__poster" src="assets/img/hero-poster.jpg" alt="Ford Explorer ST клиента у офиса Carsify на Полярной 58В" width="1600" height="896" fetchpriority="high">
       </picture>
       <figcaption><span class="plate">Ford Explorer ST</span><span class="plate plate--ghost">Полярная 58В</span></figcaption>
     </figure>
-    <figure class="tile tile--car" role="button" tabindex="0" data-photo="assets/img/p01_2510.jpg" data-name="BMW 3 G20" aria-label="Открыть фото: BMW 3 G20"><img src="assets/img/p01_2510.jpg" alt="BMW 3 серии G20 у офиса Carsify" width="480" height="640" loading="lazy"><figcaption><span class="plate">BMW 3 G20</span></figcaption></figure>
-    <figure class="tile tile--car" role="button" tabindex="0" data-photo="assets/img/p08_1310.jpg" data-name="Cayenne" aria-label="Открыть фото: Cayenne"><img src="assets/img/p08_1310.jpg" alt="Porsche Cayenne у офиса Carsify" width="480" height="640" loading="lazy"><figcaption><span class="plate">Cayenne</span></figcaption></figure>
-    <figure class="tile tile--car" role="button" tabindex="0" data-photo="assets/img/p10_0810.jpg" data-name="Land Cruiser" aria-label="Открыть фото: Land Cruiser"><img src="assets/img/p10_0810.jpg" alt="Toyota Land Cruiser FJ45 у офиса Carsify" width="480" height="640" loading="lazy"><figcaption><span class="plate">Land Cruiser</span></figcaption></figure>
-    <figure class="tile tile--car" role="button" tabindex="0" data-photo="assets/img/p05_1610.jpg" data-name="Santa Fe" aria-label="Открыть фото: Santa Fe"><img src="assets/img/p05_1610.jpg" alt="Hyundai Santa Fe у офиса Carsify" width="480" height="640" loading="lazy"><figcaption><span class="plate">Santa Fe</span></figcaption></figure>
+    <button type="button" class="tile tile--car" data-photo="assets/img/p01_2510.webp" data-name="BMW 3 G20" aria-label="Открыть фото: BMW 3 G20"><img src="assets/img/p01_2510.webp" alt="BMW 3 серии G20 у офиса Carsify" width="480" height="640" loading="lazy"><span class="cap"><span class="plate">BMW 3 G20</span></span></button>
+    <button type="button" class="tile tile--car" data-photo="assets/img/p08_1310.webp" data-name="Cayenne" aria-label="Открыть фото: Cayenne"><img src="assets/img/p08_1310.webp" alt="Porsche Cayenne у офиса Carsify" width="480" height="640" loading="lazy"><span class="cap"><span class="plate">Cayenne</span></span></button>
+    <button type="button" class="tile tile--car" data-photo="assets/img/p10_0810.webp" data-name="Land Cruiser" aria-label="Открыть фото: Land Cruiser"><img src="assets/img/p10_0810.webp" alt="Toyota Land Cruiser FJ45 у офиса Carsify" width="480" height="640" loading="lazy"><span class="cap"><span class="plate">Land Cruiser</span></span></button>
+    <button type="button" class="tile tile--car" data-photo="assets/img/p05_1610.webp" data-name="Santa Fe" aria-label="Открыть фото: Santa Fe"><img src="assets/img/p05_1610.webp" alt="Hyundai Santa Fe у офиса Carsify" width="480" height="640" loading="lazy"><span class="cap"><span class="plate">Santa Fe</span></span></button>
   </div>
 </section>
 
@@ -81,23 +90,23 @@
     <div class="route__stage">
       <div class="route__media" aria-hidden="true">
         <div class="route__layer" data-layer="0">
-          <img src="assets/route/k3_auction.jpg" alt="" width="1920" height="1072">
+          <img src="assets/route/k3_auction.webp" alt="" loading="lazy" width="1920" height="1072">
           <video data-src="assets/video/route-1-auction.mp4" muted playsinline loop preload="none"></video>
         </div>
         <div class="route__layer" data-layer="1">
-          <img src="assets/route/k4_port.jpg" alt="" loading="lazy" width="1920" height="1072">
+          <img src="assets/route/k4_port.webp" alt="" loading="lazy" width="1920" height="1072">
           <video data-src="assets/video/route-2-port.mp4" muted playsinline loop preload="none"></video>
         </div>
         <div class="route__layer" data-layer="2">
-          <img src="assets/route/k5_sea.jpg" alt="" loading="lazy" width="1920" height="1072">
+          <img src="assets/route/k5_sea.webp" alt="" loading="lazy" width="1920" height="1072">
           <video data-src="assets/video/route-3-sea.mp4" muted playsinline loop preload="none"></video>
         </div>
         <div class="route__layer" data-layer="3">
-          <img src="assets/route/k6_road.jpg" alt="" loading="lazy" width="1920" height="1072">
+          <img src="assets/route/k6_road.webp" alt="" loading="lazy" width="1920" height="1072">
           <video data-src="assets/video/route-4-road.mp4" muted playsinline loop preload="none"></video>
         </div>
         <div class="route__layer" data-layer="4">
-          <img src="assets/img/hero-first.jpg" alt="" loading="lazy" width="1920" height="1072">
+          <img src="assets/img/hero-first.webp" alt="" loading="lazy" width="1920" height="1072">
           <video data-src="assets/video/hero-arrive.mp4" muted playsinline preload="none"></video>
         </div>
         <div class="route__scrim"></div>
@@ -109,35 +118,35 @@
       </div>
 
       <ol class="route__steps wrap">
-        <li class="step is-on" data-step="0" style="--img:url(assets/route/k3_auction.jpg)">
+        <li class="step is-on" data-step="0" style="--img:url(assets/route/k3_auction-m.webp)">
           <span class="step__n">01<small>/05</small></span>
           <h3>Подбор и торги</h3>
           <p>Ищем лот на Copart и IAAI под ваш бюджет, проверяем CarFax и AutoCheck, торгуемся за вас.</p>
-          <span class="step__chip">Неделя 1</span>
+          <span class="step__chip">CarFax · AutoCheck</span>
         </li>
-        <li class="step" data-step="1" style="--img:url(assets/route/k4_port.jpg)">
+        <li class="step" data-step="1" style="--img:url(assets/route/k4_port-m.webp)">
           <span class="step__n">02<small>/05</small></span>
           <h3>Порт в США</h3>
           <p>Машину везут в порт и крепят в контейнере. Присылаем фото с погрузки.</p>
-          <span class="step__chip">Недели 1–3</span>
+          <span class="step__chip">Фото при погрузке</span>
         </li>
-        <li class="step" data-step="2" style="--img:url(assets/route/k5_sea.jpg)">
+        <li class="step" data-step="2" style="--img:url(assets/route/k5_sea-m.webp)">
           <span class="step__n">03<small>/05</small></span>
           <h3>Море</h3>
           <p>Контейнер идёт в Клайпеду или Поти. Где он сейчас, видно в трекинге.</p>
-          <span class="step__chip">Недели 3–7</span>
+          <span class="step__chip">Трекинг контейнера</span>
         </li>
-        <li class="step" data-step="3" style="--img:url(assets/route/k6_road.jpg)">
+        <li class="step" data-step="3" style="--img:url(assets/route/k6_road-m.webp)">
           <span class="step__n">04<small>/05</small></span>
           <h3>Дорога и таможня</h3>
           <p>Из порта на автовозе в Минск. Растаможка в Беларуси или напрямую в России, льготная тоже.</p>
-          <span class="step__chip">Недели 7–9</span>
+          <span class="step__chip">РБ или РФ</span>
         </li>
-        <li class="step" data-step="4" style="--img:url(assets/route/k2_office_explorer.jpg)">
+        <li class="step" data-step="4" style="--img:url(assets/route/k2_office_explorer-m.webp)">
           <span class="step__n">05<small>/05</small></span>
           <h3>Ключи на Полярной</h3>
           <p>Забираете машину у нашего офиса. Из США обычно 6–10 недель.</p>
-          <span class="step__chip">6–10 недель</span>
+          <span class="step__chip">6–10 недель из США</span>
         </li>
       </ol>
 
@@ -199,7 +208,7 @@
           <li>Таможенное оформление</li>
         </ul>
       </div>
-      <div class="receipt__total"><span>Стоимость под ключ</span><b>фиксируем до торгов</b></div>
+      <div class="receipt__total"><span>Стоимость под ключ</span><b>считаем до торгов</b></div>
       <p class="receipt__note">Расчёт предварительный: возраст авто считается на дату растаможки.</p>
     </div>
   </div>
@@ -232,16 +241,16 @@
   </div>
   <div class="wrap reels">
     <div class="reels__head">
-      <h3>Каждую выдачу снимаем для&nbsp;Instagram</h3>
+      <h3>Выдачи клиентам — в&nbsp;нашем Instagram</h3>
       <a class="pill pill--light" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener">@carsify.by</a>
     </div>
     <div class="reels__row" data-reveal-group>
-      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r02_2210.jpg" alt="Рилс Carsify о выдаче машины, 22.10" width="360" height="640" loading="lazy"><span class="reel__date">22.10</span></a>
-      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r04_2110.jpg" alt="Рилс Carsify о выдаче машины, 21.10" width="360" height="640" loading="lazy"><span class="reel__date">21.10</span></a>
-      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r03_2210.jpg" alt="Рилс Carsify о выдаче машины, 22.10" width="360" height="640" loading="lazy"><span class="reel__date">22.10</span></a>
-      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r06_1510.jpg" alt="Рилс Carsify о выдаче машины, 15.10" width="360" height="640" loading="lazy"><span class="reel__date">15.10</span></a>
-      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r07_1310.jpg" alt="Рилс Carsify о выдаче машины, 13.10" width="360" height="640" loading="lazy"><span class="reel__date">13.10</span></a>
-      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r12_2409.jpg" alt="Рилс Carsify о выдаче машины, 24.09" width="360" height="640" loading="lazy"><span class="reel__date">24.09</span></a>
+      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r02_2210.webp" alt="Рилс Carsify о выдаче машины, 22.10" width="360" height="640" loading="lazy"><span class="reel__date">22.10</span></a>
+      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r04_2110.webp" alt="Рилс Carsify о выдаче машины, 21.10" width="360" height="640" loading="lazy"><span class="reel__date">21.10</span></a>
+      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r03_2210.webp" alt="Рилс Carsify о выдаче машины, 22.10" width="360" height="640" loading="lazy"><span class="reel__date">22.10</span></a>
+      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r06_1510.webp" alt="Рилс Carsify о выдаче машины, 15.10" width="360" height="640" loading="lazy"><span class="reel__date">15.10</span></a>
+      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r07_1310.webp" alt="Рилс Carsify о выдаче машины, 13.10" width="360" height="640" loading="lazy"><span class="reel__date">13.10</span></a>
+      <a class="reel" href="https://www.instagram.com/carsify.by/" target="_blank" rel="noopener"><img src="assets/img/r12_2409.webp" alt="Рилс Carsify о выдаче машины, 24.09" width="360" height="640" loading="lazy"><span class="reel__date">24.09</span></a>
     </div>
   </div>
 </section>
@@ -263,7 +272,7 @@
 
 <!-- 6. Где мы -->
 <section class="place" id="place" aria-labelledby="place-h">
-  <img class="place__bg" src="assets/img/office.jpg" alt="Офис Carsify на Полярной 58В в Минске" width="1600" height="1275" loading="lazy">
+  <picture><source media="(max-width: 760px)" srcset="assets/img/office-m.webp" type="image/webp"><source srcset="assets/img/office.webp" type="image/webp"><img class="place__bg" src="assets/img/office.jpg" alt="Офис Carsify на Полярной 58В в Минске" width="1600" height="1275" loading="lazy"></picture>
   <div class="wrap place__inner">
     <div class="place__card" data-reveal>
       <span class="plate">Где мы</span>
@@ -287,7 +296,7 @@
   <div class="wrap quiz__grid">
     <div class="quiz__intro" data-reveal>
       <h2 id="quiz-h">Подберём машину под&nbsp;вас</h2>
-      <p class="lead">Четыре вопроса, и менеджер пришлёт варианты с аукционов с расчётом под ключ. Бесплатно и ни к чему не обязывает.</p>
+      <p class="lead">Четыре вопроса — и менеджер пришлёт варианты с аукционов с расчётом под ключ.</p>
       <ul class="quiz__people">
         <li>По каждому варианту — расчёт под ключ: от ставки до растаможки</li>
         <li>Пн–Пт 10:00–19:00, в Telegram на связи и вечером</li>

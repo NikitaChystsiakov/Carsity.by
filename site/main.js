@@ -61,7 +61,6 @@
   }
   cars.forEach((c, i) => {
     c.addEventListener('click', () => openCar(i));
-    c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCar(i); } });
   });
   $('[data-lb-close]').addEventListener('click', () => lb.close());
   $('[data-lb-prev]').addEventListener('click', () => showCar(lbi - 1));
@@ -222,11 +221,13 @@
     back.style.visibility = step > 0 && step < 4 ? 'visible' : 'hidden';
     next.textContent = step === 3 ? 'Отправить заявку' : 'Дальше';
     next.style.display = step === 4 ? 'none' : '';
+    $('.qz__nav', form).style.display = step === 4 ? 'none' : '';
     const f = $$('.qz__step', form)[step].querySelector('input'); if (f && step === 3) setTimeout(() => f.focus({ preventScroll: true }), 400);
   }
   next.addEventListener('click', () => {
     if (!valid(step)) { window.gsap?.fromTo(next, { x: -6 }, { x: 0, duration: .4, ease: 'elastic.out(1,.3)' }); next.textContent = step === 3 ? 'Укажите телефон' : 'Выберите вариант'; setTimeout(() => go(step), 1200); return; }
     go(step + 1);
+    if (step === 4) setTimeout(() => scrollToEl(form), 350);  // показать «Заявка у нас», а не середину карточки
   });
   back.addEventListener('click', () => go(step - 1));
   form.addEventListener('submit', e => e.preventDefault());

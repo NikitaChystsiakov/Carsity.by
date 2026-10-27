@@ -378,3 +378,28 @@ h2{font:700 clamp(40px,5vw,80px)/.95 var(--display);text-transform:uppercase;let
 .tile--main .tile__video{z-index:1}
 .hero-a .tile--main:after{z-index:3}
 .tile--main figcaption{z-index:4}
+
+/* ===== QA-правки ===== */
+/* якоря не прячутся под липкой шапкой */
+section[id]{scroll-margin-top:72px}
+/* карточки машин — кнопки */
+button.tile{display:block;padding:0;border:0;text-align:left;font:inherit;color:inherit}
+.tile .cap{position:absolute;left:12px;bottom:12px;display:flex;gap:6px;flex-wrap:wrap}
+.hero-a .tile .cap{left:6px;bottom:6px}
+/* контраст */
+.step__n small{color:#6f6a60}
+.btn--red{background:#D80D1F}.btn--red:hover{background:#B90A19}
+/* зоны нажатия */
+.hints button{min-height:40px}
+.faq details{padding:0}
+.faq summary{padding:22px 0}
+.faq details p{margin:0 0 22px}
+.foot__grid a{padding:6px 0}
+.lots__head .link{display:inline-block;padding:10px 0}
+.place__card dd a{display:inline-block;padding:8px 0}
+@media (max-width:760px){
+  .hints button{min-height:44px;padding:0 14px}
+  .foot__grid a{padding:10px 0;margin-bottom:0}
+  .qz__plate span{white-space:normal;overflow:visible;line-height:1.15}
+}
+.qz{scroll-margin-top:80px}
