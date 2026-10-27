@@ -1,0 +1,6 @@
+.DS_Store
+.playwright-mcp/
+# сырые исходники Kling (сжатые версии лежат в site/assets/video)
+.art-director/review/*_raw.mp4
+# их 4K-видео с текущего сайта, в демо не используется
+.art-director/materials/site/hero-main.webm

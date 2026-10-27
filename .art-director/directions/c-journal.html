@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C — Журнал выдач</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#F10F22;--ink:#111;--paper:#EFECE5}
+*{box-sizing:border-box;margin:0}
+body{font-family:Onest,sans-serif;background:var(--paper);color:var(--ink)}
+header{display:flex;align-items:center;gap:32px;padding:20px 40px;border-bottom:1px solid #d8d3c8}
+header img{height:28px}nav{display:flex;gap:26px;font-size:15px;margin-left:auto}
+.cta{background:var(--ink);color:#fff;border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px}
+.hero{min-height:calc(100svh - 70px);display:grid;grid-template-rows:auto 1fr;padding:28px 40px 32px;gap:22px}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
+h1{font:700 clamp(56px,8vw,136px)/.88 Oswald;text-transform:uppercase;letter-spacing:-.01em}
+h1 span{color:var(--red)}
+.side{max-width:380px;font-size:17px;line-height:1.45}
+.side .q{display:flex;margin-top:16px;background:#fff;border-radius:14px;padding:5px;box-shadow:0 1px 0 #d8d3c8}
+.side input{flex:1;border:0;padding:0 14px;font:500 15px Onest;min-width:0;outline:0}
+.side button{border:0;background:var(--red);color:#fff;border-radius:10px;padding:14px 18px;font:700 15px Onest}
+.wall{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;min-height:0}
+.wall figure{border-radius:16px;background:center/cover;position:relative;min-height:240px}
+.wall figcaption{position:absolute;left:10px;bottom:10px;background:#fff;font:700 15px Oswald;text-transform:uppercase;padding:5px 10px}
+.wall figure.big{grid-column:span 2}
+.strip{display:flex;gap:28px;font-size:15px;align-items:center}
+.strip b{font:700 28px Oswald}
+@media(max-width:760px){header{padding:14px 16px}nav{display:none}.cta{margin-left:auto}
+.hero{padding:20px 16px}.head{flex-direction:column;align-items:flex-start;gap:14px}
+.wall{grid-template-columns:repeat(2,1fr)}.wall figure{min-height:200px}.wall figure.big{grid-column:span 2}.wall figure:nth-child(n+6){display:none}}
+</style></head><body>
+<header><img src="img/logo-horizontal-dark.svg" alt="Carsify"><nav><span>Как привозим</span><span>Отзывы</span><span>Калькулятор</span><span>+375 29 552-22-20</span></nav><span class="cta">Telegram</span></header>
+<section class="hero">
+<div class="head"><h1>Покупай,<br>а не <span>мечтай</span></h1>
+<div class="side">Пригон авто из США, Кореи и Европы под ключ. Ниже — машины, которые мы уже выдали клиентам у своего офиса на Полярной.
+<div class="q"><input placeholder="Какую машину ищете?"><button>Подобрать</button></div></div></div>
+<div class="wall">
+<figure class="big" style="background-image:url(img/rr.jpg)"><figcaption>Range Rover Sport</figcaption></figure>
+<figure style="background-image:url(img/p01_2510.jpg)"><figcaption>BMW 3 G20</figcaption></figure>
+<figure style="background-image:url(img/p08_1310.jpg)"><figcaption>Porsche Cayenne</figcaption></figure>
+<figure style="background-image:url(img/p10_0810.jpg)"><figcaption>Land Cruiser FJ45</figcaption></figure>
+<figure style="background-image:url(img/p05_1610.jpg)"><figcaption>Santa Fe</figcaption></figure>
+</div>
+</section></body></html>

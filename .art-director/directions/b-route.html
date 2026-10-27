@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B — Маршрут машины</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#F10F22;--ink:#121214;--g:#1C1C1F}
+*{box-sizing:border-box;margin:0}
+body{font-family:Onest,sans-serif;background:var(--ink);color:#fff}
+.hero{min-height:100svh;display:flex;flex-direction:column;padding-bottom:28px;background:radial-gradient(120% 70% at 50% 0,#26262a 0,var(--ink) 60%)}
+header{display:flex;align-items:center;gap:32px;padding:22px 40px}
+header img{height:30px}nav{display:flex;gap:26px;font-size:15px;opacity:.85;margin-left:auto}
+.cta{background:var(--red);border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px}
+.top{text-align:center;padding:4vh 24px 0}
+.kicker{font:500 15px Oswald;letter-spacing:.14em;text-transform:uppercase;color:#bbb}
+h1{font:700 clamp(48px,6.6vw,108px)/.95 Oswald;text-transform:uppercase;margin:14px auto 0;max-width:16ch}
+h1 span{color:var(--red)}
+.lead{font-size:18px;opacity:.8;max-width:56ch;margin:18px auto 0;line-height:1.45}
+.route{margin:auto 40px 0;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative;padding-top:46px}
+.route:before{content:"";position:absolute;left:10%;right:10%;top:16px;height:2px;background:repeating-linear-gradient(90deg,#555 0 8px,transparent 8px 14px)}
+.route:after{content:"";position:absolute;left:10%;width:52%;top:16px;height:2px;background:var(--red)}
+.st{position:relative}
+.st:before{content:"";position:absolute;top:-36px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:#555;z-index:1}
+.st.on:before{background:var(--red);box-shadow:0 0 0 6px rgba(241,15,34,.25)}
+.ph{aspect-ratio:4/3;border-radius:14px;background:#2a2a2e center/cover;position:relative;overflow:hidden}
+.ph b{position:absolute;left:10px;bottom:10px;background:#fff;color:#000;font:700 14px Oswald;text-transform:uppercase;padding:4px 9px}
+.st p{font-size:14px;opacity:.75;margin-top:8px;line-height:1.35}.st strong{display:block;font-size:15px;opacity:1;color:#fff}
+.st .ph.gen{background:repeating-linear-gradient(45deg,#2a2a2e 0 12px,#232327 12px 24px);display:grid;place-items:center;color:#777;font-size:13px}
+.bar{display:flex;justify-content:center;gap:12px;margin-top:22px}
+.bar a{background:var(--red);padding:16px 26px;border-radius:14px;font-weight:700}
+.bar a.ghost{background:transparent;border:1px solid #444}
+@media(max-width:760px){header{padding:16px}nav{display:none}.cta{margin-left:auto}
+.route{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;margin:22px 0 0;padding:46px 16px 0}
+.route:before,.route:after{left:16px}.bar{flex-direction:column;padding:0 16px}.bar a{text-align:center}}
+</style></head><body>
+<section class="hero">
+<header><img src="img/logo-horizontal.svg" alt="Carsify"><nav><span>Как привозим</span><span>Отзывы</span><span>Калькулятор</span><span>+375 29 552-22-20</span></nav><span class="cta">Подобрать авто</span></header>
+<div class="top"><div class="kicker">Пригон авто под ключ · США · Корея · Европа</div>
+<h1>От аукциона до ключей <span>в Минске</span></h1>
+<p class="lead">Ведём машину по всему маршруту и показываем каждый этап фото и видео. Сумма фиксируется до торгов.</p></div>
+<div class="route">
+<div class="st on"><div class="ph gen">кадр Kling: лот на площадке</div><p><strong>Подбор и торги</strong>Copart, IAAI, проверка CarFax</p></div>
+<div class="st on"><div class="ph gen">кадр Kling: погрузка в контейнер</div><p><strong>Порт США</strong>фото при погрузке</p></div>
+<div class="st on"><div class="ph gen">кадр Kling: контейнеровоз</div><p><strong>Море</strong>Клайпеда или Поти</p></div>
+<div class="st"><div class="ph" style="background-image:url(img/x5m_side.jpg)"><b>Растаможка</b></div><p><strong>Таможня</strong>РБ или напрямую в РФ</p></div>
+<div class="st"><div class="ph" style="background-image:url(img/rr.jpg)"><b>Полярная 58В</b></div><p><strong>Выдача</strong>6–10 недель из США</p></div>
+</div>
+<div class="bar"><a>Начать подбор →</a><a class="ghost">Рассчитать под ключ</a></div>
+</section></body></html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A — Вывеска в соснах</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#F10F22;--ink:#0B0B0C;--paper:#F4F1EA}
+*{box-sizing:border-box;margin:0}
+body{font-family:Onest,sans-serif;background:var(--ink);color:#fff}
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
+.bg{position:absolute;inset:0;background:url(img/rr.jpg) center 40%/cover}
+.bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0,rgba(0,0,0,.05) 30%,rgba(0,0,0,.15) 55%,rgba(8,8,9,.92) 88%)}
+header{position:relative;display:flex;align-items:center;gap:32px;padding:22px 40px}
+header img{height:30px}
+nav{display:flex;gap:26px;font-size:15px;opacity:.9;margin-left:auto}
+.tel{font-weight:700}
+.tg{background:#fff;color:#000;border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px}
+.content{position:relative;margin-top:auto;padding:0 40px 40px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+.tag{display:inline-block;background:#fff;color:#000;font:700 15px Oswald;text-transform:uppercase;padding:6px 12px;letter-spacing:.02em;margin-bottom:18px}
+h1{font:700 clamp(54px,7.4vw,124px)/.92 Oswald;text-transform:uppercase;letter-spacing:-.01em;max-width:13ch}
+h1 em{font-style:normal;color:var(--red)}
+.lead{font-size:19px;max-width:46ch;margin:22px 0 26px;opacity:.88;line-height:1.45}
+.quick{display:flex;background:#fff;border-radius:16px;padding:6px;max-width:620px}
+.quick input{flex:1;border:0;font:500 17px Onest;padding:0 18px;outline:0;min-width:0}
+.quick button{background:var(--red);color:#fff;border:0;border-radius:12px;font:700 16px Onest;padding:18px 26px;white-space:nowrap}
+.chips{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.chips span{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 14px;font-size:14px}
+.review{width:340px;background:rgba(14,14,15,.78);backdrop-filter:blur(14px);border-radius:20px;padding:22px;border:1px solid rgba(255,255,255,.12)}
+.stars{color:#FFC21A;letter-spacing:2px}.rate{font:700 30px Oswald}
+.review p{font-size:15px;line-height:1.45;margin:10px 0 12px;opacity:.9}
+.review small{opacity:.6}
+@media(max-width:760px){header{padding:16px}nav,.tel{display:none}.tg{margin-left:auto}
+.content{grid-template-columns:1fr;padding:0 16px 22px;gap:18px}.review{width:auto}
+.bg{background-position:62% 30%}.lead{font-size:16px;margin:14px 0 18px}
+.quick{flex-direction:column;gap:6px}.quick input{padding:14px}}
+</style></head><body>
+<section class="hero"><div class="bg"></div>
+<header><img src="img/logo-horizontal.svg" alt="Carsify"><nav><span>Как привозим</span><span>Отзывы</span><span>Калькулятор</span><span>Горячие лоты</span></nav><span class="tel">+375 29 552-22-20</span><span class="tg">Telegram</span></header>
+<div class="content"><div>
+<span class="tag">Минск · Полярная 58В</span>
+<h1>Привезём машину из <em>США, Кореи</em> и Европы под ключ</h1>
+<p class="lead">Сумма, которую назовём до торгов, совпадёт с итоговой. Фото и видео на каждом этапе — от аукциона до выдачи у нашего офиса.</p>
+<div class="quick"><input placeholder="Какую машину ищете? Например, BMW X5 до 60 000 $"><button>Начать подбор →</button></div>
+<div class="chips"><span>6–10 недель из США</span><span>Copart · IAAI</span><span>Растаможка в РБ и РФ</span></div>
+</div>
+<aside class="review"><div class="rate">5,0 <span class="stars">★★★★★</span></div><small>36 оценок на Яндекс Картах</small>
+<p>«Та сумма, которая оговорена до начала торгов — до копейки совпадает с суммой, когда вы держите ключи в руках».</p><small>Влад Петрович, отзыв на Яндекс Картах</small></aside>
+</div></section></body></html>
